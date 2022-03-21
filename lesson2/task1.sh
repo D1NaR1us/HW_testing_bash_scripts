@@ -5,9 +5,9 @@ ssh $2@$1 -i "$3" 'bash' -s << "ENDSSH" > ./task1
 DEST=/etc/passwd
 DEST2=/etc/shadow
 
-grep -Eiq 'Bob@example' $DEST && grep -Eiq 'Alice@example' $DEST && grep -Eiq 'Carol@example' $DEST
+sudo grep -Eiq 'Bob@example' $DEST && sudo grep -Eiq 'Alice@example' $DEST && sudo grep -Eiq 'Carol@example' $DEST
     response1=$( echo $? )
-grep -Eiq 'Bob:\$6\$' $DEST2 && grep -Eiq 'Alice:\$6\$' $DEST2 && grep -Eiq 'Carol:\$6\$' $DEST2
+sudo grep -Eiq 'Bob:\$6\$' $DEST2 && sudo grep -Eiq 'Alice:\$6\$' $DEST2 && sudo grep -Eiq 'Carol:\$6\$' $DEST2
     response2=$( echo $? )
 if [[ $response1 == 0 ]] && [[ $response2 == 0 ]]
 then
