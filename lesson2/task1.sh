@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh $2@$1 -i "$3" 'bash' -s << "ENDSSH" > ./task3
+ssh $2@$1 -i "$3" 'bash' -s << "ENDSSH" > ./task1
 
 DEST=/etc/passwd
 DEST2=/etc/shadow
