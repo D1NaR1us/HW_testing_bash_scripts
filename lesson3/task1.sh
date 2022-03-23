@@ -1,13 +1,13 @@
 #!/bin/bash
 
-curl ftp://$1/pub/ --user ftp:ftp -o testftp
+lftp -e mput ftp://$1/pub/
 
 response1=$( echo $? )
 
 echo $response1
 echo "test test" > testuploadftp
 
-curl -T testuploadftp ftp://$1/pub/upload/ --user ftp:ftp
+lftp -e mget ftp://$1/pub/upload/
 
 response2=$( echo $? )
 
